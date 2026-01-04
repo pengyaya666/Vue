@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "baseUrl": "./",
+    "moduleResolution": "Node",
+    "paths": {
+      "@/*": ["src/*"] // 映射 @ 到 src
+    },
+    "jsx": "preserve"
+  },
+  "exclude": ["node_modules", "dist"]
+}

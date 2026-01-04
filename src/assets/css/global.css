@@ -1,0 +1,31 @@
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* 隐藏元素 */
+.hide {
+  display: none !important;
+}
+
+/* 禁止选中 */
+.unselectable {
+  -webkit-user-select: none; 
+  user-select: none;
+}
