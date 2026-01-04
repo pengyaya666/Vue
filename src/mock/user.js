@@ -1,13 +1,25 @@
-// src/mock/user.js - 正确的默认导出
-export default [
-  {
-    url: '/api/user/login',
-    method: 'post',
-    response: ({ body }) => {
-      if (body.username === 'admin' && body.password === '123456') {
-        return { code: 200, msg: '登录成功', data: { token: 'admin-token-123' } }
+export default function userMock(Mock) {
+  Mock.mock('/api/user/login', 'post', (req) => {
+    const { username, password } = JSON.parse(req.body)
+    if (username === 'admin' && password === '123456') {
+      return {
+        code: 200,
+        msg: '登录成功',
+        data: {
+          token: Mock.Random.guid(),
+          userInfo: {
+            id: Mock.Random.id(),
+            name: '管理员',
+            role: 'admin'
+          }
+        }
       }
-      return { code: 500, msg: '账号或密码错误' }
+    } else {
+      return {
+        code: 500,
+        msg: '用户名或密码错误',
+        data: null
+      }
     }
-  }
-]
+  })
+}
